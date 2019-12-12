@@ -20,7 +20,7 @@ namespace LojaVirtual.Controllers
 
         public IActionResult ContatoAcao()
         {
-            //Contato contato = new Contato();
+            Contato contato = new Contato();
             contato.Nome = HttpContext.Request.Form["nome"];
             contato.Email = HttpContext.Request.Form["email"];
             contato.Texto = HttpContext.Request.Form["texto"];
