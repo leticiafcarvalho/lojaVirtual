@@ -12541,11 +12541,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\leticia.franco\\Documents\\projetos\\LojaVirtual\\LojaVirtual\\LojaVirtual.csproj",
+      "projectUniqueName": "C:\\Users\\leticia.franco\\Documents\\projetos\\cursoudemy\\lojaVirtual\\LojaVirtual\\LojaVirtual.csproj",
       "projectName": "LojaVirtual",
-      "projectPath": "C:\\Users\\leticia.franco\\Documents\\projetos\\LojaVirtual\\LojaVirtual\\LojaVirtual.csproj",
+      "projectPath": "C:\\Users\\leticia.franco\\Documents\\projetos\\cursoudemy\\lojaVirtual\\LojaVirtual\\LojaVirtual.csproj",
       "packagesPath": "C:\\Users\\leticia.franco\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\leticia.franco\\Documents\\projetos\\LojaVirtual\\LojaVirtual\\obj\\",
+      "outputPath": "C:\\Users\\leticia.franco\\Documents\\projetos\\cursoudemy\\lojaVirtual\\LojaVirtual\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
