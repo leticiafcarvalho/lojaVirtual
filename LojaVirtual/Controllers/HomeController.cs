@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LojaVirtual.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LojaVirtual.Controllers
