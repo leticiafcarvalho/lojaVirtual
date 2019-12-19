@@ -21,7 +21,7 @@ namespace LojaVirtual.Libraries.Email
                 Port = 587,
                 Host = "smtp.office365.com",
                 EnableSsl = true,
-                //client.Timeout = 10000;
+                //client.Timeout = 10000;   
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential("naoresponda@primebeneficios.com.br", "Ruta6637")
@@ -35,6 +35,7 @@ namespace LojaVirtual.Libraries.Email
                 contato.Email,
                 contato.Texto
             );
+
             MailMessage mensagem = new MailMessage();
             mensagem.From = new MailAddress("naoresponda@primebeneficios.com.br");
             mensagem.To.Add("leticia.fcarvalho.job@gmail.com");

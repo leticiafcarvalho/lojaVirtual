@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.EntityFrameworkCore;
+using LojaVirtual.Models;
 
 namespace LojaVirtual
 {
@@ -40,6 +41,7 @@ namespace LojaVirtual
             string connection = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=LojaVirtual;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
             services.AddDbContext<LojaVirtualContext>(options => options.UseSqlServer(connection));
+            services.Configure<Configuracoes>(Configuration.GetSection("ConfiguracoesGerais"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
