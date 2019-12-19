@@ -17,7 +17,9 @@ namespace LojaVirtual.Controllers
         public HomeController(LojaVirtualContext banco)
         {
             _banco = banco;
-        }         
+        }
+           
+
 
         [HttpGet]
         public IActionResult Index()
@@ -95,8 +97,13 @@ namespace LojaVirtual.Controllers
         {
             return View();
         }
-
+        [HttpGet]
         public IActionResult CadastroCliente()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CadastroCliente([FromForm] Cliente cliente)
         {
             return View();
         }
