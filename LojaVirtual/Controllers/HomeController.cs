@@ -17,9 +17,7 @@ namespace LojaVirtual.Controllers
         public HomeController(LojaVirtualContext banco)
         {
             _banco = banco;
-        }
-           
-
+        }         
 
         [HttpGet]
         public IActionResult Index()
