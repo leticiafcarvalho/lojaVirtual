@@ -72,7 +72,7 @@ using LojaVirtual.Models;
                         ");
             EndContext();
             BeginContext(661, 1203, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b30c6b61bc774baba91764853b46f694", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0ba87d4e41a54c509ec4d6741da77491", async() => {
                 BeginContext(667, 1190, true);
                 WriteLiteral(@"
                             <div class=""form-group"">
