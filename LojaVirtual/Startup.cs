@@ -14,6 +14,7 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.EntityFrameworkCore;
 using LojaVirtual.Models;
 using LojaVirtual.Repositories;
+using LojaVirtual.Repositories.Contracts;
 
 namespace LojaVirtual
 {
@@ -30,6 +31,7 @@ namespace LojaVirtual
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IClienteRepository, ClienteRepository>();
+            services.AddScoped<INewsletterRepository, NewsletterRepository>();
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.

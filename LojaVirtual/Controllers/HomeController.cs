@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 using LojaVirtual.Database;
-using LojaVirtual.Repositories;
+using LojaVirtual.Repositories.Contracts;
 
 namespace LojaVirtual.Controllers
 {

@@ -4,16 +4,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using LojaVirtual.Database;
 using LojaVirtual.Models;
+using LojaVirtual.Repositories.Contracts;
 
 namespace LojaVirtual.Repositories
 {
     public class ClienteRepository : IClienteRepository
     {
         private LojaVirtualContext _banco;
+
         public ClienteRepository(LojaVirtualContext banco)
         {
             _banco = banco;
         }
+
         public void Atualizar(Cliente cliente)
         {
             _banco.Update(cliente);
@@ -37,7 +40,6 @@ namespace LojaVirtual.Repositories
         {
             Cliente cliente = _banco.Clientes.Where(m => m.Email == Email && m.Senha == Senha).First();
             return cliente;
-
         }
 
         public Cliente ObterCliente(int Id)
@@ -45,7 +47,7 @@ namespace LojaVirtual.Repositories
             return _banco.Clientes.Find(Id);
         }
 
-        public List<Cliente> ObterTodosClientes()
+        public IEnumerable<Cliente> ObterTodosClientes()
         {
             return _banco.Clientes.ToList();
         }
