@@ -14,10 +14,12 @@ namespace LojaVirtual.Controllers
 {
     public class HomeController : Controller
     {
-        private IClienteRepository _repository;
-        public HomeController(IClienteRepository repository)
+        private IClienteRepository _repositoryCliente;
+        private INewsletterRepository _repositoryINewsletter;
+        public HomeController(IClienteRepository repositoryCliente, INewsletterRepository repositoryINewsletter)
         {
-            _repository = repository;
+            _repositoryCliente = repositoryCliente;
+            _repositoryINewsletter = repositoryINewsletter;
         }
            
 
@@ -32,11 +34,9 @@ namespace LojaVirtual.Controllers
         public IActionResult Index([FromForm]NewsletterEmail newsletter)
         {
             if (ModelState.IsValid)
-            {/*
-                //TODO - Adição no banco de dados
-                _banco.NewsletterEmails.Add(newsletter);
-                _banco.SaveChanges();
-                TempData["MSG_S"] = "E-mail cadastrado para as promoções!";*/
+            {
+                _repositoryINewsletter.Cadastrar(newsletter);
+                TempData["MSG_S"] = "E-mail cadastrado para as promoções!";
                 return RedirectToAction(nameof(Index));
             }
             else
@@ -110,7 +110,7 @@ namespace LojaVirtual.Controllers
         {
             if (ModelState.IsValid)
             {
-                _repository.Cadastrar(cliente);
+                _repositoryCliente.Cadastrar(cliente);
              
                 TempData["MSG_S"] = "Cliente cadastrado com sucesso!";
 
