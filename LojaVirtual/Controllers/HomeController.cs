@@ -9,6 +9,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 using LojaVirtual.Database;
 using LojaVirtual.Repositories.Contracts;
+using Microsoft.AspNetCore.Http;
 
 namespace LojaVirtual.Controllers
 {
@@ -21,7 +22,7 @@ namespace LojaVirtual.Controllers
             _repositoryCliente = repositoryCliente;
             _repositoryINewsletter = repositoryINewsletter;
         }
-           
+
 
 
         [HttpGet]
@@ -57,7 +58,7 @@ namespace LojaVirtual.Controllers
                 contato.Nome = HttpContext.Request.Form["nome"];
                 contato.Email = HttpContext.Request.Form["email"];
                 contato.Texto = HttpContext.Request.Form["texto"];
-                
+
 
                 var listaMensagens = new List<ValidationResult>();
                 var contexto = new ValidationContext(contato);
@@ -81,7 +82,7 @@ namespace LojaVirtual.Controllers
                     ViewData["CONTATO"] = contato;
                 }
 
-                
+
             }
             catch (Exception e)
             {
@@ -89,7 +90,7 @@ namespace LojaVirtual.Controllers
 
                 //TODO - Implementar Log
             }
-            
+
 
             return View("Contato");
         }
@@ -102,17 +103,33 @@ namespace LojaVirtual.Controllers
         [HttpPost]
         public IActionResult Login([FromForm] Cliente cliente)
         {
-            /*Simulando
-             if(cliente.Email == "elias.ribeiro.s@gmail.com" && cliente.Senha == "1234")
+            /*Simulando*/
+            if (cliente.Email == "teste@gmail.com" && cliente.Senha == "123456")
             {
-                return new ContentResult() { Content="Logado!"};
+                HttpContext.Session.Set("ID", new byte[] { 52 });
+                HttpContext.Session.SetString("Email", cliente.Email);
+                HttpContext.Session.SetInt32("Idade", 34);
+
+                return new ContentResult() { Content = "Logado!" };
             }
             else
             {
                 return new ContentResult() { Content = "Não logado!" };
             }
-             */
-            return View();
+
+            // return View();
+        }
+
+        [HttpGet]
+        public IActionResult Painel()
+        {
+            /*HttpContext.Session.TryGetValue()
+            if ()
+            {
+                return new ContentResult() { Content = "Acesso concedido: " + UsuarioId };
+            }*/
+            return new ContentResult() { Content = "Acesso não concedido: " + UsuarioId };
+            
         }
 
         [HttpGet]
@@ -127,7 +144,7 @@ namespace LojaVirtual.Controllers
             if (ModelState.IsValid)
             {
                 _repositoryCliente.Cadastrar(cliente);
-             
+
                 TempData["MSG_S"] = "Cliente cadastrado com sucesso!";
 
                 //TODO - Implementar redirecionamentos diferentes
