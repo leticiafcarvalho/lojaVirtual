@@ -99,6 +99,22 @@ namespace LojaVirtual.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Login([FromForm] Cliente cliente)
+        {
+            /*Simulando
+             if(cliente.Email == "elias.ribeiro.s@gmail.com" && cliente.Senha == "1234")
+            {
+                return new ContentResult() { Content="Logado!"};
+            }
+            else
+            {
+                return new ContentResult() { Content = "Não logado!" };
+            }
+             */
+            return View();
+        }
+
         [HttpGet]
         public IActionResult CadastroCliente()
         {
