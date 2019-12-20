@@ -9,14 +9,16 @@ namespace LojaVirtual.Controllers
 {
     public class ProdutoController : Controller
     {
+        /*
+         * ActionResult
+         * IActionResult
+         */
         public ActionResult Visualizar()
         {
             Produto produto = GetProduto();
 
             return View(produto);
-
-            //return new ContentResult() {Content = "<h3> Produto -> Visualizar </h3>", ContentType = "text/html"};
-            //return "Produto -> Visualizar";
+            //return new ContentResult() { Content = "<h3>Produto -> Visualizar<h3>", ContentType = "text/html" };
         }
 
         private Produto GetProduto()
@@ -27,7 +29,6 @@ namespace LojaVirtual.Controllers
                 Nome = "Xbox One X",
                 Descricao = "Jogue em 4k",
                 Valor = 2000.00M
-
             };
         }
     }
