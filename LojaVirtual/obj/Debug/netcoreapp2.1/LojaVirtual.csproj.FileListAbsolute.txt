@@ -30,3 +30,4 @@ C:\Users\leticia.franco\Documents\projetos\cursoudemy\lojaVirtual\LojaVirtual\ob
 C:\Users\leticia.franco\Documents\projetos\cursoudemy\lojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.1\LojaVirtual.dll
 C:\Users\leticia.franco\Documents\projetos\cursoudemy\lojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.1\LojaVirtual.pdb
 C:\Users\leticia.franco\Documents\projetos\cursoudemy\lojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.1\LojaVirtual.csproj.CopyComplete
+C:\Users\leticia.franco\Documents\projetos\cursoudemy\lojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs

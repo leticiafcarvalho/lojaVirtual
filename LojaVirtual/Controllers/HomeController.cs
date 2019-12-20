@@ -17,7 +17,9 @@ namespace LojaVirtual.Controllers
         public HomeController(LojaVirtualContext banco)
         {
             _banco = banco;
-        }         
+        }
+           
+
 
         [HttpGet]
         public IActionResult Index()
@@ -96,8 +98,25 @@ namespace LojaVirtual.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult CadastroCliente()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CadastroCliente([FromForm] Cliente cliente)
+        {
+            if (ModelState.IsValid)
+            {
+                _banco.Add(cliente);
+                _banco.SaveChanges();
+
+                TempData["MSG_S"] = "Cliente cadastrado com sucesso!";
+
+                //TODO - Implementar redirecionamentos diferentes
+                return RedirectToAction(nameof(CadastroCliente));
+            }
             return View();
         }
 
