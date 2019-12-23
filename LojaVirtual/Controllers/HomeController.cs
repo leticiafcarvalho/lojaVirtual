@@ -10,6 +10,7 @@ using System.Text;
 using LojaVirtual.Database;
 using LojaVirtual.Repositories.Contracts;
 using Microsoft.AspNetCore.Http;
+using LojaVirtual.Libraries.Login;
 
 namespace LojaVirtual.Controllers
 {
@@ -17,10 +18,12 @@ namespace LojaVirtual.Controllers
     {
         private IClienteRepository _repositoryCliente;
         private INewsletterRepository _repositoryINewsletter;
-        public HomeController(IClienteRepository repositoryCliente, INewsletterRepository repositoryINewsletter)
+        private LoginCliente _loginCliente;
+        public HomeController(IClienteRepository repositoryCliente, INewsletterRepository repositoryINewsletter, LoginCliente loginCliente)
         {
             _repositoryCliente = repositoryCliente;
             _repositoryINewsletter = repositoryINewsletter;
+            _loginCliente = loginCliente;
         }
 
 
@@ -104,24 +107,23 @@ namespace LojaVirtual.Controllers
         [HttpPost]
         public IActionResult Login([FromForm] Cliente cliente)
         {
-            /*Simulando*/
-            if (cliente.Email == "testeteste@gmail.com" && cliente.Senha == "123456")
-            {
                 /*
                  Obter clinetes do banco de dados fazendo uma consiulta 
                  no db e armazenar cleinte
                  com e-mail e senha, armazenar infs na sessao
                  */
+            Cliente clienteDB =  _repositoryCliente.Login(cliente.Email, cliente.Senha);
 
-                HttpContext.Session.Set("ID", new byte[] { 52 });
-                HttpContext.Session.SetString("Email", cliente.Email);
-                HttpContext.Session.SetInt32("Idade", 34);
-
-                return new ContentResult() { Content = "Logado!" };
+            if (clienteDB != null)
+            {
+                _loginCliente.Login(clienteDB);
+                return new RedirectResult(Url.Action(nameof(Painel)));
+                //return new ContentResult() { Content = "Logado!" };
             }
             else
             {
-                return new ContentResult() { Content = "Não logado!" };
+                ViewData["MSG_E"] = "Usuário não encontrado, verifique e-mail e senha digitado!";
+                return View();
             }
 
             // return View();
@@ -130,10 +132,10 @@ namespace LojaVirtual.Controllers
         [HttpGet]
         public IActionResult Painel()
         {
-            byte[] UsuarioId;
-            if (HttpContext.Session.TryGetValue("ID", out UsuarioId ))
+           Cliente cliente = _loginCliente.GetCliente();
+            if (cliente != null)
             {
-                return new ContentResult() { Content = "Acesso concedido: " + UsuarioId[0] };
+                return new ContentResult() { Content = "Acesso concedido! Usuário: " + cliente.Id + " Email: " + cliente.Email + "Idade: "};
             }
             else
             {

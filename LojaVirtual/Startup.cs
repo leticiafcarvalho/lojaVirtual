@@ -16,6 +16,7 @@ using LojaVirtual.Models;
 using LojaVirtual.Repositories;
 using LojaVirtual.Repositories.Contracts;
 using LojaVirtual.Libraries.Sessao;
+using LojaVirtual.Libraries.Login;
 
 namespace LojaVirtual
 {
@@ -49,6 +50,7 @@ namespace LojaVirtual
             });
 
             services.AddScoped<Sessao>();
+            services.AddScoped<LoginCliente>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
