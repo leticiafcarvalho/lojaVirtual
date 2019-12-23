@@ -18,8 +18,16 @@ namespace LojaVirtual.Database
 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.HasSequence<int>("OrderNumbers", schema: "shared")
+                .StartsAt(1000)
+                .IncrementsBy(5);
+        }
+
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<NewsletterEmail> NewsletterEmails { get; set; }
+        public DbSet<Colaborador> Colaboradores { get; set; }
 
     }
 }
