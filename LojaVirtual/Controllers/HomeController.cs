@@ -107,6 +107,12 @@ namespace LojaVirtual.Controllers
             /*Simulando*/
             if (cliente.Email == "testeteste@gmail.com" && cliente.Senha == "123456")
             {
+                /*
+                 Obter clinetes do banco de dados fazendo uma consiulta 
+                 no db e armazenar cleinte
+                 com e-mail e senha, armazenar infs na sessao
+                 */
+
                 HttpContext.Session.Set("ID", new byte[] { 52 });
                 HttpContext.Session.SetString("Email", cliente.Email);
                 HttpContext.Session.SetInt32("Idade", 34);
