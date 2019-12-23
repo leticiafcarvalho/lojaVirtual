@@ -15,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using LojaVirtual.Models;
 using LojaVirtual.Repositories;
 using LojaVirtual.Repositories.Contracts;
+using LojaVirtual.Libraries.Sessao;
 
 namespace LojaVirtual
 {
@@ -30,6 +31,7 @@ namespace LojaVirtual
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<INewsletterRepository, NewsletterRepository>();
             services.Configure<CookiePolicyOptions>(options =>
@@ -46,6 +48,7 @@ namespace LojaVirtual
 
             });
 
+            services.AddScoped<Sessao>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 

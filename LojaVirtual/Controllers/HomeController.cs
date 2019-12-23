@@ -94,17 +94,18 @@ namespace LojaVirtual.Controllers
 
             return View("Contato");
         }
-
+        [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
 
+
         [HttpPost]
         public IActionResult Login([FromForm] Cliente cliente)
         {
             /*Simulando*/
-            if (cliente.Email == "teste@gmail.com" && cliente.Senha == "123456")
+            if (cliente.Email == "testeteste@gmail.com" && cliente.Senha == "123456")
             {
                 HttpContext.Session.Set("ID", new byte[] { 52 });
                 HttpContext.Session.SetString("Email", cliente.Email);
@@ -123,13 +124,16 @@ namespace LojaVirtual.Controllers
         [HttpGet]
         public IActionResult Painel()
         {
-            /*HttpContext.Session.TryGetValue()
-            if ()
+            byte[] UsuarioId;
+            if (HttpContext.Session.TryGetValue("ID", out UsuarioId ))
             {
-                return new ContentResult() { Content = "Acesso concedido: " + UsuarioId };
-            }*/
-            return new ContentResult() { Content = "Acesso não concedido: " + UsuarioId };
-            
+                return new ContentResult() { Content = "Acesso concedido: " + UsuarioId[0] };
+            }
+            else
+            {
+                return new ContentResult() { Content = "Acesso não concedido! "};
+            }
+
         }
 
         [HttpGet]
