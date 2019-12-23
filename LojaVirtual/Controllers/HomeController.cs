@@ -97,22 +97,22 @@ namespace LojaVirtual.Controllers
 
             return View("Contato");
         }
+
         [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
 
-
         [HttpPost]
         public IActionResult Login([FromForm] Cliente cliente)
         {
-                /*
-                 Obter clinetes do banco de dados fazendo uma consiulta 
-                 no db e armazenar cleinte
-                 com e-mail e senha, armazenar infs na sessao
-                 */
-            Cliente clienteDB =  _repositoryCliente.Login(cliente.Email, cliente.Senha);
+            /*
+             Obter clinetes do banco de dados fazendo uma consiulta 
+             no db e armazenar cleinte
+             com e-mail e senha, armazenar infs na sessao
+             */
+            Cliente clienteDB = _repositoryCliente.Login(cliente.Email, cliente.Senha);
 
             if (clienteDB != null)
             {
@@ -125,23 +125,20 @@ namespace LojaVirtual.Controllers
                 ViewData["MSG_E"] = "Usuário não encontrado, verifique e-mail e senha digitado!";
                 return View();
             }
-
-            // return View();
         }
 
         [HttpGet]
         public IActionResult Painel()
         {
-           Cliente cliente = _loginCliente.GetCliente();
+            Cliente cliente = _loginCliente.GetCliente();
             if (cliente != null)
             {
-                return new ContentResult() { Content = "Acesso concedido! Usuário: " + cliente.Id + " Email: " + cliente.Email + "Idade: "};
+                return new ContentResult() { Content = "Acesso concedido! Usuário: " + cliente.Id + " Email: " + cliente.Email };
             }
             else
             {
-                return new ContentResult() { Content = "Acesso não concedido! "};
+                return new ContentResult() { Content = "Acesso não concedido! " };
             }
-
         }
 
         [HttpGet]
