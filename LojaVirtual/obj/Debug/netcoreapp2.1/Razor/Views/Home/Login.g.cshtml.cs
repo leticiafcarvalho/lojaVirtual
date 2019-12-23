@@ -103,6 +103,7 @@ using LojaVirtual.Models;
             BeginContext(593, 24, true);
             WriteLiteral("                        ");
             EndContext();
+<<<<<<< HEAD
             BeginContext(617, 113, false);
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9a7940633ecd498989d42c49bd59c959", async() => {
                 BeginContext(715, 11, true);
@@ -158,6 +159,11 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
                 BeginContext(1066, 265, true);
+=======
+            BeginContext(661, 1203, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "37341851b3de4bde92cf560eb1eb6517", async() => {
+                BeginContext(667, 1190, true);
+>>>>>>> master
                 WriteLiteral(@"
                             </div>
                             <div class=""form-group"">
