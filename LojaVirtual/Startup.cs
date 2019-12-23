@@ -47,7 +47,8 @@ namespace LojaVirtual
 
             //Session - Configuração
             services.AddMemoryCache(); //Guardar os dados na memória
-            services.AddSession(options => {
+            services.AddSession(options =>
+            {
                 //options.IdleTimeou = TimeSpan(1);
 
             });
@@ -79,7 +80,7 @@ namespace LojaVirtual
 
             app.UseHttpsRedirection();
             app.UseDefaultFiles();
-            app.UseStaticFiles();            
+            app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseSession();
 
@@ -96,6 +97,10 @@ namespace LojaVirtual
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                    name: "areas",
+                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
                 routes.MapRoute(
                     name: "default",
                     template: "/{controller=Home}/{action=Index}/{id?}");

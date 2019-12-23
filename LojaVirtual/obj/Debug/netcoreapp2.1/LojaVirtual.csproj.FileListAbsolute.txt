@@ -31,3 +31,5 @@ C:\Users\leticia.franco\Documents\projetos\cursoudemy\lojaVirtual\LojaVirtual\ob
 C:\Users\leticia.franco\Documents\projetos\cursoudemy\lojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.1\LojaVirtual.csproj.CopyComplete
 C:\Users\leticia.franco\Documents\projetos\cursoudemy\lojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
 C:\Users\leticia.franco\Documents\projetos\cursoudemy\lojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.1\LojaVirtual.csprojAssemblyReference.cache
+C:\Users\leticia.franco\Documents\projetos\cursoudemy\lojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.1\Razor\Areas\Colaborador\Views\Home\Login.g.cshtml.cs
+C:\Users\leticia.franco\Documents\projetos\cursoudemy\lojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.1\Razor\Areas\Colaborador\Views\Home\RecuperarSenha.g.cshtml.cs
