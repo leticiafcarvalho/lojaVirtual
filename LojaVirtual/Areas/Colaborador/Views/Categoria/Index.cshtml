@@ -27,7 +27,22 @@
                     <tr>
                         <th scope="row">@categoria.Id</th>
                         <td>@categoria.Nome</td>
-                        <td>@categoria.CategoriaPaiId</td>
+                        <td>
+                            @{ /*
+                                     @if (categoria.CategoriaPai != null)
+                                     {
+                                     <span>@categoria.CategoriaPai.Id - @categoria.CategoriaPai.Nome</span>
+                                     }
+                                     else
+                                     {
+                                     <span>--</span>
+                                     }
+
+                                 */}
+                            @Html.DisplayFor(model => categoria.CategoriaPai.Id)
+                            -
+                            @Html.DisplayFor(model => categoria.CategoriaPai.Nome)
+                        </td>
                         <td>
                             <a asp-action="Atualizar" asp-route-id="@categoria.Id" class="btn btn-secondary">Atualizar</a>
                             <a asp-action="Excluir" asp-route-Id="@categoria.Id" class="btn btn-danger">Excluir</a>
